@@ -6,21 +6,22 @@
 
         <div>
             <label for="email">E-mail</label><br>
-            <input formControlName="email" type="text" name="email" id="email">
+            <input formControlName="email" placeholder="email" type="text" name="email" id="email">
         </div>
 
         <div>
             <label for="senha">Senha</label><br>
-            <input formControlName="senha" type="password" name="senha" id="senha">
+            <input formControlName="senha" type="password" placeholder="senha" name="senha" id="senha">
         </div>
 
         <input type="checkbox" name="lembrar" id="lembrar">
         <label>Lembrar de min</label>
 
+        <button [disabled]="loginForm.invalid" type="submit">Continuar</button>
+
     </form>
 
     <div id="confirmar">
-        <button type="submit" [disabled]="loginForm.invalid">Continuar</button>
         <p><a href="">Esqueci minha senha</a></p>
     </div>
 

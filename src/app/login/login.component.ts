@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup
 
   // Dados fictícios para simular validação
-  emailDB: string = "email@teste.com";
-  senhaDB: string = "12345678";
+  emailDB: string = "teste@hotmail.com";
+  senhaDB: string = "123456";
 
   constructor(private formBuilder: FormBuilder, private router: Router) { }
 
