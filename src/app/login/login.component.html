@@ -1,28 +1,27 @@
 <div id="container">
-    <section>
 
-        <img class="logo" src="../../assets/img/logo.png">
-        <h1>Solução para seus Negócios</h1>
-        <form>
+    <img class="logo" src="../../assets/img/logo.png">
+    <h1>Solução para seus Negócios</h1>
+    <form [formGroup]="loginForm" (Submit)="login()">
 
-            <div>
-                <label>E-mail</label><br>
-                <input type="text" name="email" id="email">
-            </div>
-
-            <div>
-                <label>Senha</label><br>
-                <input type="password" name="senha" id="senha">
-            </div>
-
-            <input type="checkbox" name="lembrar" id="lembrar">
-            <label>Lembrar de min</label>
-
-        </form>
-
-        <div id="confirmar">
-            <input type="submit" value="Confirmar">
-            <p><a href="">Esqueci minha senha</a></p>
+        <div>
+            <label for="email">E-mail</label><br>
+            <input formControlName="email" type="text" name="email" id="email">
         </div>
-    </section>
+
+        <div>
+            <label for="senha">Senha</label><br>
+            <input formControlName="senha" type="password" name="senha" id="senha">
+        </div>
+
+        <input type="checkbox" name="lembrar" id="lembrar">
+        <label>Lembrar de min</label>
+
+    </form>
+
+    <div id="confirmar">
+        <button type="submit" [disabled]="loginForm.invalid">Continuar</button>
+        <p><a href="">Esqueci minha senha</a></p>
+    </div>
+
 </div>

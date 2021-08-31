@@ -65,7 +65,7 @@ input[type="checkbox"]{
     text-align: right;
 }
 
-input[type="submit"]{
+button{
     border: 1px solid #BEBEBE;
     border-radius: 3px;
     background: #CD3700;
