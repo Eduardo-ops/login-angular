@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: any
+  loginForm: FormGroup
 
   // Dados fictícios para simular validação
   emailDB: string = "email@teste.com";
@@ -31,10 +31,10 @@ export class LoginComponent implements OnInit {
 
     // Validação simples apra simular
     if (this.loginForm.get('email').value == this.emailDB && this.loginForm.get('senha').value == this.senhaDB) {
-      console.log('Login com sucesso!!!')
+      alert('Login com sucesso!!!')
       this.router.navigate(['home'])
     } else {
-      console.log("Dados incorretos")
+      alert("Dados incorretos")
     }
   }
 
