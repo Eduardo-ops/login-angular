@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Data, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,13 +15,17 @@ export class LoginComponent implements OnInit {
   emailDB: string = "teste@hotmail.com";
   senhaDB: string = "123456";
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private elementRef: ElementRef) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       senha: ['', Validators.required]
     })
+  }
+
+  ngAfterViewInit(): void {
+    this.elementRef.nativeElement.ownerDocument.body.style.background = 'url(../../assets/img/login.jpg)';
   }
 
   login() {
