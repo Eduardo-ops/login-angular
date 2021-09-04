@@ -13,4 +13,9 @@ export class AuthService {
     this.authUser = true
     this.router.navigate(['/home'])
   }
+
+  isAuthUser() {
+    return this.authUser = true
+  }
+
 }

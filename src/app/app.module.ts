@@ -9,12 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './login/auth.service';
+import { GuardService } from './guard/guard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +24,7 @@ import { AuthService } from './login/auth.service';
     HttpClientModule,
     CommonModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, GuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
