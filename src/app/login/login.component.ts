@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +11,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup
+  validedUser: boolean = false
 
   // Dados fictícios para simular validação
   emailDB: string = "teste@hotmail.com";
   senhaDB: string = "123456";
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private elementRef: ElementRef) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private elementRef: ElementRef, private authService: AuthService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -29,14 +31,13 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log('passei no metodo')
     const email = this.loginForm.get('email').value
     const senha = this.loginForm.get('senha').value
 
-    // Validação simples apra simular
+    // Validação simples para simular
     if (this.loginForm.get('email').value == this.emailDB && this.loginForm.get('senha').value == this.senhaDB) {
+      this.authService.authLogin()
       alert('Login com sucesso!!!')
-      this.router.navigate(['/home'])
     } else {
       alert("Dados incorretos")
     }
